@@ -25,6 +25,9 @@ newdf.drop([col for col, val in newdf[colNames].sum().iteritems() if val < 10], 
 
 
 
+
+
+
 # low and high
 cc=newdf#.drop(['ExtensionsUsed'])
 cc.loc['Total']= pd.Series(cc[cc.columns.values[2:]].sum(), index = [cc.columns.values[2:]])
