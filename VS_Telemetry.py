@@ -22,7 +22,8 @@ colNames=list(set(newdf.columns.values) - set(['MacAddressHash',  'ExtensionsUse
 newdf.drop([col for col, val in newdf[colNames].sum().iteritems() if val < 10], axis=1, inplace=True)       
 ###########
 
-# GITHUB! 
+
+
 
 # low and high
 cc=newdf#.drop(['ExtensionsUsed'])
