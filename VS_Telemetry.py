@@ -22,6 +22,8 @@ colNames=list(set(newdf.columns.values) - set(['MacAddressHash',  'ExtensionsUse
 newdf.drop([col for col, val in newdf[colNames].sum().iteritems() if val < 10], axis=1, inplace=True)       
 ###########
 
+# GITHUB! 
+
 # low and high
 cc=newdf#.drop(['ExtensionsUsed'])
 cc.loc['Total']= pd.Series(cc[cc.columns.values[2:]].sum(), index = [cc.columns.values[2:]])
