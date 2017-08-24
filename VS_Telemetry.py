@@ -13,7 +13,7 @@ data=data.drop(['MacAddressHash1'], axis=1)
 # now we need to parse out Extensions Used
 df=data.groupby('MacAddressHash').agg(lambda x: ' , '.join(set(x))).reset_index()
 
-
+# split the strings in Extensions used and expand 
 df2 = df.ExtensionsUsed.str.split(' , ', expand=True)
 df2 = pd.get_dummies(df2, prefix='', prefix_sep='')
 df2 = df2.groupby(df2.columns, axis=1).sum()
@@ -21,8 +21,6 @@ newdf=pd.concat([df, df2], axis=1)
 colNames=list(set(newdf.columns.values) - set(['MacAddressHash',  'ExtensionsUsed']))
 newdf.drop([col for col, val in newdf[colNames].sum().iteritems() if val < 10], axis=1, inplace=True)       
 ###########
-#stop
-#newdf=pd.read_csv('VS_Telemetry_1mo_modified.csv', encoding = "cp1252")
 
 # low and high
 cc=newdf#.drop(['ExtensionsUsed'])
