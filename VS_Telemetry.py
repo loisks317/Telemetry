@@ -3,10 +3,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-###############
-# for first time use uncomment this 
-#
 # read in data
+
+print("hey I'm writing code")
 
 data=pd.read_csv('VS_Extensions_RTVS_1week_correct.csv')
 data=data.drop(['MacAddressHash1'], axis=1)
